@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Editar Alquiler</h2>
+    <form method="post">
+        <div class="form-group">
+            <label for="id_pelicula">Película</label>
+            <select class="form-control" id="id_pelicula" name="id_pelicula" required>
+                {% for peliculaId, peliculaName in peliculas %}
+                <option value="{{ peliculaId }}" {% if peliculaId == alquiler[1] %}selected{% endif %}>{{ peliculaName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_usuario">Nombre del Cliente</label>
+            <select class="form-control" id="id_usuario" name="id_usuario" required>
+                {% for usuarioId, usuName in usuarios %}
+                <option value="{{ usuarioId }}" {% if usuarioId == alquiler[2] %}selected{% endif %}>{{ usuName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha_alquiler">Fecha de Alquiler</label>
+            <input type="date" class="form-control" id="fecha_alquiler" name="fecha_alquiler" value="{{ alquiler[3] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha_devolucion">Fecha de Devolución</label>
+            <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion" value="{{ alquiler[4] }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar Alquiler</button>
+    </form>
+</div>
+{% endblock %}

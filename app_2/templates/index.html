@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center mb-4">Alquiler de Películas</h2>
+        <a href="{{ url_for('add_movie') }}" class="btn btn-primary btn-lg mb-4">Agregar Nueva Película</a>
+        <div class="row">
+          {% for movie in movies %}
+          <div class="col-md-3 mb-4">
+            <div class="card">
+              <img src="{{ movie[6] }}" class="card-img-top" alt="{{ movie[1] }}" style="height: 200px; object-fit: cover;"> <!-- Estilo en línea -->
+              <div class="card-body">
+                <h5 class="card-title">{{ movie[1] }}</h5>
+                <p class="card-text"><strong>Director:</strong> {{ movie[2] }}</p>
+                <p class="card-text"><strong>Año:</strong> {{ movie[3] }}</p>
+                <p class="card-text"><strong>Género:</strong> {{ movie[4] }}</p>
+                <p class="card-text"><strong>Disponible:</strong> {{ movie[5] }}</p>
+                <a href="{{ url_for('edit_movie', id=movie[0]) }}" class="btn btn-info btn-sm">Actualizar</a>
+                <form action="{{ url_for('delete_movie', id=movie[0]) }}" method="post" style="display:inline-block;">
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

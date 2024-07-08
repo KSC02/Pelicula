@@ -1,0 +1,61 @@
+<head>
+    <style>
+        body {
+            background-color: #141414;
+            color: #ffffff;
+        }
+
+        h2 {
+            color: #e50914;
+        }
+
+        .form-control {
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+        }
+
+        .form-control::placeholder {
+            color: #b3b3b3;
+        }
+
+        .btn-primary {
+            background-color: #e50914;
+            border: none;
+        }
+    </style>
+</head>
+
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Editar Película</h2>
+    <form method="post">
+        <div class="form-group">
+            <label for="titulo">Título</label>
+            <input type="text" class="form-control" id="titulo" name="titulo" value="{{ movie[1] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="director">Director</label>
+            <input type="text" class="form-control" id="director" name="director" value="{{ movie[2] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="anio">Año de Publicación</label>
+            <input type="number" class="form-control" id="anio" name="anio" value="{{ movie[3] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="genero">Género</label>
+            <input type="text" class="form-control" id="genero" name="genero" value="{{ movie[4] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="cantidad_disponible">Cantidad Disponible</label>
+            <input type="number" class="form-control" id="cantidad_disponible" name="cantidad_disponible" value="{{ movie[5] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="image_url">URL de la Imagen</label>
+            <input type="text" class="form-control" id="image_url" name="image_url" value="{{ movie[6] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Actualizar Película</button>
+    </form>
+</div>
+{% endblock %}

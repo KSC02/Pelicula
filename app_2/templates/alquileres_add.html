@@ -1,0 +1,66 @@
+<head>
+    <style>
+        body {
+            background-color: #141414;
+            color: #ffffff;
+        }
+
+        h2 {
+            color: #e50914;
+        }
+
+        .form-control {
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+        }
+
+        .form-control::placeholder {
+            color: #b3b3b3;
+        }
+
+        .btn-danger {
+            background-color: #e50914;
+            border: none;
+        }
+
+        .btn-danger:hover {
+            background-color: #d40813;
+        }
+    </style>
+</head>
+
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Agregar Alquiler</h2>
+    <form method="post">
+        <div class="form-group">
+            <label for="id_pelicula">Película</label>
+            <select class="form-control" id="id_pelicula" name="id_pelicula" required>
+                {% for peliculaId, peliculaName in peliculas %}
+                <option value="{{ peliculaId }}">{{ peliculaName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="id_usuario">Nombre del Cliente</label>
+            <select class="form-control" id="id_usuario" name="id_usuario" required>
+                {% for usuarioId, usuName in usuarios %}
+                <option value="{{ usuarioId }}">{{ usuName }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha_alquiler">Fecha de Alquiler</label>
+            <input type="date" class="form-control" id="fecha_alquiler" name="fecha_alquiler" required>
+        </div>
+        <div class="form-group">
+            <label for="fecha_devolucion">Fecha de Devolución</label>
+            <input type="date" class="form-control" id="fecha_devolucion" name="fecha_devolucion">
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar Alquiler</button>
+    </form>
+</div>
+{% endblock %}

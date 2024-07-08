@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="mb-3">Agregar Película</h2>
+    <form method="post">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" class="form-control" id="title" name="title" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="director">Director</label>
+            <input type="text" class="form-control" id="director" name="director" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="anio">Año de Estreno</label>
+            <input type="text" class="form-control" id="anio" name="anio" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="genero">Género</label>
+            <input type="text" class="form-control" id="genero" name="genero" required>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="quantity">Cantidad Disponible</label>
+            <input type="text" class="form-control" id="quantity" name="quantity" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="image_url">URL de la Imagen</label>
+            <input type="text" class="form-control" id="image_url" name="image_url" required>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Agregar Película</button>
+    </form>
+  </div>
+{% endblock %}
